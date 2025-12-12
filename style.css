@@ -7,9 +7,6 @@
     --orange: #ff9900;
     --text-white: #ffffff;
     --hex-border: #6688cc;
-    --hex-bg: #000000;
-    --correct-bg: #00aa00;
-    --wrong-bg: #aa0000;
 }
 
 body {
@@ -34,7 +31,14 @@ body {
     z-index: 1;
 }
 
-/* Background Watermark */
+/* Overlay Screen */
+.overlay-mode {
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
 .bg-logo {
     position: absolute;
     top: 50%;
@@ -67,42 +71,72 @@ body {
     to { opacity: 1; }
 }
 
-/* === BRANDING === */
-.logo-container {
+/* === THE NEW CSS LOGO === */
+.millionaire-logo {
+    position: relative;
+    width: 200px;
+    height: 200px;
     margin: 20px auto;
-}
-.logo-container.small { transform: scale(0.6); margin: 0 auto; }
-
-.logo-ring {
-    width: 180px;
-    height: 180px;
-    background: conic-gradient(#444, #888, #444, #888, #444);
-    border-radius: 50%;
-    padding: 5px;
-    box-shadow: 0 0 30px rgba(0, 100, 255, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.millionaire-logo.small { transform: scale(0.6); margin: 0 auto; }
 
-.logo-inner {
+.ring-outer {
+    position: absolute;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #0044cc 30%, #000022 100%);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #000;
+    background: conic-gradient(#444, #999, #444, #999, #444);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    z-index: 1;
 }
 
-h1 {
-    font-family: 'Copperplate', 'Copperplate Gothic Light', serif;
-    font-size: 20px;
-    line-height: 1.1;
+.ring-inner {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #002266 0%, #000022 100%);
+    border: 4px solid var(--gold);
+    z-index: 2;
+    box-shadow: inset 0 0 20px #000;
+}
+
+.question-mark-bg {
+    position: absolute;
+    font-size: 140px;
+    color: rgba(0, 255, 0, 0.1);
+    font-family: serif;
+    z-index: 3;
+    font-weight: bold;
+}
+
+.logo-text {
+    position: relative;
+    z-index: 4;
+    font-family: 'Copperplate', serif;
+    text-align: center;
     color: #e5e5e5;
-    text-shadow: 0 2px 4px #000;
-    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #000;
+    line-height: 1;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 32px;
+    background: linear-gradient(to bottom, #fff, #bbb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-text span.sub {
+    font-size: 14px;
+    color: var(--gold);
+    -webkit-text-fill-color: var(--gold);
+    letter-spacing: 2px;
+    margin-top: 5px;
 }
 
 h2 {
@@ -166,10 +200,8 @@ h2 {
     line-height: 1.4;
 }
 
-/* === QUESTIONS & ANSWERS (The Hexagon Look) === */
-.question-container {
-    margin: 10px 0;
-}
+/* === QUESTIONS & ANSWERS (Hexagons) === */
+.question-container { margin: 10px 0; }
 
 .question-hex {
     background: linear-gradient(to bottom, #000000, #000044);
@@ -184,21 +216,12 @@ h2 {
     position: relative;
 }
 .question-hex::before, .question-hex::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 2px;
-    background: var(--text-white);
+    content: ''; position: absolute; top: 50%; width: 20px; height: 2px; background: var(--text-white);
 }
 .question-hex::before { left: -20px; }
 .question-hex::after { right: -20px; }
 
-#question-text {
-    margin: 0;
-    font-size: 1.25em;
-    font-weight: normal;
-}
+#question-text { margin: 0; font-size: 1.25em; font-weight: normal; }
 
 .answers-grid {
     display: grid;
@@ -222,18 +245,9 @@ h2 {
 }
 
 .answer-hex::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -10px;
-    width: 10px;
-    height: 1px;
-    background: var(--hex-border);
+    content: ''; position: absolute; top: 50%; left: -10px; width: 10px; height: 1px; background: var(--hex-border);
 }
-.answer-hex:nth-child(even)::before {
-    left: auto;
-    right: -10px;
-}
+.answer-hex:nth-child(even)::before { left: auto; right: -10px; }
 
 .answer-letter {
     color: var(--orange);
@@ -251,10 +265,7 @@ h2 {
     box-shadow: 0 0 20px #00ff00;
     animation: flash 0.5s alternate infinite;
 }
-
-.answer-hex.correct .answer-letter {
-    color: #000;
-}
+.answer-hex.correct .answer-letter { color: #000; }
 
 @keyframes flash {
     from { background: #00aa00; }
@@ -262,11 +273,7 @@ h2 {
 }
 
 /* === BUTTONS === */
-.controls {
-    margin-top: auto;
-    margin-bottom: 20px;
-    height: 50px;
-}
+.controls { margin-top: auto; margin-bottom: 20px; height: 50px; }
 
 .btn-millionaire {
     background: linear-gradient(to bottom, #0044cc, #000066);
@@ -282,16 +289,28 @@ h2 {
     letter-spacing: 1px;
     transition: all 0.2s;
 }
-
-.btn-millionaire:active {
-    transform: scale(0.95);
-    background: #000044;
-}
+.btn-millionaire:active { transform: scale(0.95); background: #000044; }
 
 .btn-reveal { width: 100%; border-color: var(--orange); color: var(--orange); }
 .btn-next { width: 100%; border-color: var(--gold); color: var(--gold); }
 
 .hidden { display: none; }
-
 .blink { animation: blinker 1s linear infinite; color: var(--orange); }
 @keyframes blinker { 50% { opacity: 0; } }
+
+/* Logo small for overlay */
+.logo-ring {
+    width: 100px; height: 100px;
+    background: conic-gradient(#444, #888, #444, #888, #444);
+    border-radius: 50%; padding: 5px;
+    box-shadow: 0 0 30px rgba(0, 100, 255, 0.5);
+    display: flex; align-items: center; justify-content: center;
+}
+.logo-inner {
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #0044cc 30%, #000022 100%);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid #000;
+}
+.logo-inner h1 { font-size: 14px; }
