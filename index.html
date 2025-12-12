@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#000022" />
-  <link rel="apple-touch-icon" href="https://via.placeholder.com/192/000044/FFD700?text=$" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
 </head>
 
 <body>
@@ -21,28 +21,19 @@
   <main id="app">
     
     <div id="screen-start" class="screen active">
-      
-      <div class="css-logo-wrapper">
-        <div class="logo-glow-effect"></div>
-        <div class="logo-outer-ring"></div>
-        <div class="logo-inner-dish">
-            <div class="logo-q-mark-bg">?</div>
-            <div class="logo-q-mark-bg left">?</div>
-            <div class="logo-q-mark-bg right">?</div>
-            <div class="logo-text-stack">
-                <span class="logo-top">SNAITH</span>
-                <span class="logo-bottom">MILLIONAIRE</span>
-            </div>
-        </div>
+      <div class="logo-container">
+        <img src="logo.png" alt="Snaith Millionaire Logo" class="main-logo-img" onerror="this.style.display='none'">
+        <h1 class="fallback-title">SNAITH MILLIONAIRE</h1>
       </div>
       
       <div class="intro-box">
         <h2>SPECIAL EDITION</h2>
         <div class="cast-list">
             <p><strong>STARRING:</strong> MR. HARRISON</p>
-            <p style="font-size: 0.9em; color: #d4af37; margin-bottom: 20px; font-style: italic;">"The True Story of Financial Ruin"</p>
-            <p style="font-size: 0.8em; color: #888; line-height: 1.4;">Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+            <p style="font-size: 0.9em; color: #aaa; margin-bottom: 15px;">"The True Story of Financial Ruin"</p>
+            <p style="font-size: 0.8em; color: #666; line-height: 1.4;">Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
         </div>
+        
         <button id="btn-enter" class="btn-millionaire big">ENTER STUDIO</button>
       </div>
     </div>
@@ -116,16 +107,9 @@
     <div id="screen-end" class="screen">
       <div class="confetti-container" id="confetti-container"></div>
       
-      <div class="css-logo-wrapper small">
-        <div class="logo-outer-ring"></div>
-        <div class="logo-inner-dish">
-            <div class="logo-q-mark">?</div>
-            <div class="logo-text-stack">
-                <span class="logo-top">SNAITH</span>
-            </div>
-        </div>
+      <div class="logo-container small">
+        <img src="logo.png" alt="Logo" class="main-logo-img small" onerror="this.style.display='none'">
       </div>
-
       <h2 class="blink" style="color:#d4af37; font-size:3em; margin-bottom:10px;">GAME OVER</h2>
       <div class="final-box">
         <p id="final-message"></p>
@@ -136,8 +120,13 @@
   </main>
 
   <script src="app.js"></script>
+  
   <script>
-    if('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js');
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js').then(function(reg) {
+            reg.update(); // Force check for updates immediately
+        });
+    }
   </script>
 </body>
 </html>
