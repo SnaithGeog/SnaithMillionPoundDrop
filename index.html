@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Snaith Millionaire</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#000022" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+</head>
+
+<body>
+  <audio id="music-intro" loop preload="auto">
+    <source src="intro.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="music-game" loop preload="auto">
+    <source src="game.mp3" type="audio/mpeg" />
+  </audio>
+
+  <main id="app">
+    
+    <div id="screen-start" class="screen active">
+      <div class="logo-container">
+        <img src="logo.png" alt="Snaith Millionaire Logo" class="main-logo-img" onerror="this.style.display='none'">
+        <h1 class="fallback-title">SNAITH MILLIONAIRE</h1>
+      </div>
+      
+      <div class="intro-box">
+        <h2>SPECIAL EDITION</h2>
+        <div class="cast-list">
+            <p><strong>STARRING:</strong> MR. HARRISON</p>
+            <p style="font-size: 0.9em; color: #aaa; margin-bottom: 15px;">"The True Story of Financial Ruin"</p>
+            <p style="font-size: 0.8em; color: #666; line-height: 1.4;">Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+        </div>
+        <button id="btn-enter" class="btn-millionaire big">ENTER STUDIO</button>
+      </div>
+    </div>
+
+    <div id="screen-game" class="screen">
+      
+      <div class="money-ladder" id="money-ladder">
+        <div class="rung" data-level="15">15 &nbsp; £149M</div>
+        <div class="rung" data-level="14">14 &nbsp; £145M</div>
+        <div class="rung" data-level="13">13 &nbsp; £12M</div>
+        <div class="rung" data-level="12">12 &nbsp; £2.6M</div>
+        <div class="rung" data-level="11">11 &nbsp; 10 MINS</div>
+        <div class="rung safe" data-level="10">10 &nbsp; £1.2M</div>
+        <div class="rung" data-level="9">09 &nbsp; £2.12</div>
+        <div class="rung" data-level="8">08 &nbsp; £28</div>
+        <div class="rung" data-level="7">07 &nbsp; £5.20</div>
+        <div class="rung" data-level="6">06 &nbsp; £1.5M</div>
+        <div class="rung safe" data-level="5">05 &nbsp; £75</div>
+        <div class="rung" data-level="4">04 &nbsp; £65</div>
+        <div class="rung" data-level="3">03 &nbsp; £1,599</div>
+        <div class="rung" data-level="2">02 &nbsp; £2.50</div>
+        <div class="rung active" data-level="1">01 &nbsp; £2.50</div>
+      </div>
+
+      <div class="game-content">
+        <header class="top-bar">
+          <div class="lifelines">
+            <button class="lifeline-btn" onclick="this.classList.toggle('used')">50:50</button>
+            <button class="lifeline-btn" onclick="this.classList.toggle('used')">📞</button>
+            <button class="lifeline-btn" onclick="this.classList.toggle('used')">👥</button>
+          </div>
+          <div class="score-box">
+            Q <span id="q-count">1</span> / 15
+          </div>
+        </header>
+
+        <div class="narrative-box">
+          <p id="story-text">Story loads here...</p>
+        </div>
+
+        <div class="question-container">
+          <div class="hex-row">
+            <div class="hex-line"></div>
+            <div class="hex-content" id="question-text">Question loads here...</div>
+            <div class="hex-line"></div>
+          </div>
+        </div>
+
+        <div class="answers-grid">
+          <div class="answer-hex" id="opt-a-card">
+            <span class="letter">A:</span> <span class="text" id="opt-a"></span>
+          </div>
+          <div class="answer-hex" id="opt-b-card">
+            <span class="letter">B:</span> <span class="text" id="opt-b"></span>
+          </div>
+          <div class="answer-hex" id="opt-c-card">
+            <span class="letter">C:</span> <span class="text" id="opt-c"></span>
+          </div>
+          <div class="answer-hex" id="opt-d-card">
+            <span class="letter">D:</span> <span class="text" id="opt-d"></span>
+          </div>
+        </div>
+
+        <div class="controls-area">
+          <button id="btn-reveal" class="btn-millionaire action">REVEAL ANSWER</button>
+          <button id="btn-next" class="btn-millionaire action hidden">NEXT QUESTION</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-end" class="screen">
+      <div class="confetti-container" id="confetti-container"></div>
+      
+      <div class="logo-container small">
+        <img src="logo.png" alt="Logo" class="main-logo-img small" onerror="this.style.display='none'">
+      </div>
+      <h2 class="blink" style="color:#d4af37; font-size:3em; margin-bottom:10px;">GAME OVER</h2>
+      <div class="final-box">
+        <p id="final-message"></p>
+      </div>
+      <button id="btn-play-again" class="btn-millionaire">PLAY AGAIN</button>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+  
+  <script>
+    // Unregister old workers to force update
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+    // Re-register new one
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
+</body>
+</html>
