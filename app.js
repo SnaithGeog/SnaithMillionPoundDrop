@@ -110,25 +110,27 @@ const optionCards = document.querySelectorAll('.answer-hex');
 const musicIntro = document.getElementById('music-intro');
 const musicGame = document.getElementById('music-game');
 
-// Step 1: Initialize Audio (Robust Logic)
+// Step 1: Initialize Audio
 initBtn.addEventListener('click', () => {
-    // Immediately unlock screen
-    overlayScreen.classList.remove('active');
-    startScreen.classList.add('active');
-
-    // Attempt to play audio, but catch errors silently so game doesn't break
-    musicIntro.play().catch(e => {
-        console.warn("Audio failed to autoplay (user might need to interact more or file missing).", e);
+    musicIntro.play()
+    .then(() => {
+        overlayScreen.classList.remove('active');
+        startScreen.classList.add('active');
+    })
+    .catch(error => {
+        // Fallback: Proceed even if audio fails
+        overlayScreen.classList.remove('active');
+        startScreen.classList.add('active');
     });
 });
 
-// Step 2: Start Game (Switch Audio)
+// Step 2: Start Game
 startBtn.addEventListener('click', () => {
     startScreen.classList.remove('active');
     gameScreen.classList.add('active');
     
     musicIntro.pause();
-    musicGame.play().catch(e => console.warn("Game audio failed.", e));
+    musicGame.play().catch(e => console.log("Game music failed:", e));
 
     loadQuestion();
 });
