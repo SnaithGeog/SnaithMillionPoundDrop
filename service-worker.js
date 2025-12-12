@@ -1,4 +1,4 @@
-const CACHE_NAME = 'snaith-millionaire-v6';
+const CACHE_NAME = 'snaith-millionaire-v7';
 const assets = [
   './',
   './index.html',
