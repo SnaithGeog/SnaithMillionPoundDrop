@@ -1,5 +1,4 @@
-// Updated Version Number to force refresh
-const CACHE_NAME = 'snaith-millionaire-v5';
+const CACHE_NAME = 'snaith-millionaire-v6';
 const assets = [
   './',
   './index.html',
