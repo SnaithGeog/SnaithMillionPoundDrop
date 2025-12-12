@@ -131,7 +131,6 @@ h1 {
     align-items: center;
 }
 
-/* This is what happens when REVEAL is pressed */
 .option-card.correct {
     background: var(--correct);
     border-color: var(--gold);
