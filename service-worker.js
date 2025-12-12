@@ -1,4 +1,4 @@
-const CACHE_NAME = 'snaith-millionaire-v18';
+const CACHE_NAME = 'snaith-millionaire-v20';
 const assets = [
   './',
   './index.html',
@@ -21,15 +21,3 @@ self.addEventListener('activate', event => {
       return Promise.all(keys
         .filter(key => key !== CACHE_NAME)
         .map(key => caches.delete(key))
-      );
-    })
-  );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});
