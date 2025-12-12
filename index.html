@@ -8,9 +8,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#000022" />
-
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="apple-touch-icon" href="./icons/icon-192.png" />
 </head>
 
@@ -24,22 +21,22 @@
 
   <header class="topbar">
     <div class="brand">
-      <img class="brand-icon" src="./icons/icon-192.png" alt="" aria-hidden="true" />
+      <div class="brand-logo-css">?</div>
       <div class="brand-text">
         <div class="brand-title">Snaith Millionaire</div>
-        <div class="brand-subtitle">Classroom Storyboard Edition • v3.0</div>
+        <div class="brand-subtitle">Classroom Edition • v3.2</div>
       </div>
     </div>
 
     <div class="actions">
-      <button id="btn-board" class="chip" type="button" aria-pressed="true" title="Toggle Board Mode (projector)">
+      <button id="btn-board" class="chip" type="button" aria-pressed="true" title="Toggle Board Mode">
         Board Mode
       </button>
-      <button id="btn-mute" class="chip" type="button" aria-pressed="false" title="Mute/unmute audio">
-        🔊 Audio
+      <button id="btn-mute" class="chip" type="button" aria-pressed="false" title="Mute/unmute">
+        🔊
       </button>
-      <button id="btn-reset" class="chip danger" type="button" title="Reset">
-        Reset
+      <button id="btn-reset" class="chip danger" type="button" title="Reset Game">
+        ↺
       </button>
     </div>
   </header>
@@ -47,32 +44,33 @@
   <main class="app" id="app">
     <section id="screen-start" class="screen screen-active">
       <div class="panel hero">
-        <div class="logo" aria-hidden="true">
-          <div class="ring"></div>
-          <div class="core">
-            <div class="mark">?</div>
-            <div class="word">SNAITH</div>
-          </div>
+        
+        <div class="css-logo-wrapper">
+            <div class="logo-glow-effect"></div>
+            <div class="logo-outer-ring"></div>
+            <div class="logo-inner-dish">
+                <div class="logo-q-mark-bg">?</div>
+                <div class="logo-q-mark-bg left">?</div>
+                <div class="logo-q-mark-bg right">?</div>
+                <div class="logo-text-stack">
+                    <span class="logo-top">SNAITH</span>
+                    <span class="logo-bottom">MILLIONAIRE</span>
+                </div>
+            </div>
         </div>
 
-        <h1>Who Wants to be a Snaith Millionaire?</h1>
+        <h1>Mr. Harrison's Financial Ruin</h1>
         <p class="muted">
-          Designed for whole-class display. Read the story, show the question, then reveal the correct answer.
+          A cautionary tale of terrible advice and expensive mistakes.
         </p>
 
         <div class="row">
-          <button id="btn-enter" class="btn primary" type="button">Enter Studio</button>
-          <button id="btn-start" class="btn" type="button">Start Game</button>
+          <button id="btn-enter" class="btn primary big-start-btn" type="button">ENTER STUDIO & PLAY</button>
         </div>
 
-        <details class="how">
-          <summary>How it works</summary>
-          <ul>
-            <li>Use <strong>Reveal</strong> to highlight the correct answer (no student input needed).</li>
-            <li>Use <strong>Next</strong> to move to the next story chapter.</li>
-            <li>Board Mode is ON by default for projector-friendly text.</li>
-          </ul>
-        </details>
+        <div class="cast-list" style="margin-top: 20px; font-size: 0.85em; color: rgba(255,255,255,0.6);">
+          Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.
+        </div>
       </div>
     </section>
 
@@ -88,31 +86,30 @@
           <div class="panel mini">
             <div class="mini-title">Controls</div>
             <div class="stack">
-              <button id="btn-reveal" class="btn primary" type="button">Reveal</button>
-              <button id="btn-next" class="btn" type="button" disabled>Next</button>
+              <button id="btn-reveal" class="btn primary" type="button">Reveal Answer</button>
+              <button id="btn-next" class="btn" type="button" disabled>Next Question</button>
             </div>
             <div id="status" class="status" aria-live="polite"></div>
           </div>
 
           <div class="panel mini">
-            <div class="mini-title">Lifelines (display only)</div>
+            <div class="mini-title">Lifelines</div>
             <div class="lifes">
-              <span class="life">50:50</span>
-              <span class="life">📞</span>
-              <span class="life">👥</span>
+              <button class="life" onclick="this.style.opacity='0.3'">50:50</button>
+              <button class="life" onclick="this.style.opacity='0.3'">📞</button>
+              <button class="life" onclick="this.style.opacity='0.3'">👥</button>
             </div>
-            <div class="muted small">Optional: use these as prompts for discussion.</div>
           </div>
         </aside>
 
         <section class="stage" aria-label="Story and question">
           <div class="panel storypanel">
-            <div class="label">Story</div>
+            <div class="label">The Story</div>
             <div id="story-text" class="story"></div>
           </div>
 
           <div class="panel qpanel">
-            <div class="label">Question</div>
+            <div class="label">The Question</div>
             <div id="question-text" class="question"></div>
           </div>
 
@@ -128,8 +125,20 @@
 
     <section id="screen-end" class="screen">
       <div class="panel hero">
-        <h1>Game Over</h1>
-        <p id="final-message" class="muted"></p>
+        <div class="confetti-container" id="confetti-container"></div>
+        
+        <div class="css-logo-wrapper small">
+            <div class="logo-outer-ring"></div>
+            <div class="logo-inner-dish">
+                <div class="logo-q-mark">?</div>
+                <div class="logo-text-stack">
+                    <span class="logo-top">SNAITH</span>
+                </div>
+            </div>
+        </div>
+
+        <h1 style="color:#d4af37;">Game Over</h1>
+        <p id="final-message" class="story" style="margin-bottom: 20px;"></p>
         <div class="row">
           <button id="btn-play-again" class="btn primary" type="button">Play Again</button>
         </div>
@@ -139,7 +148,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span class="muted small">Offline-ready PWA • Board Mode for projector • v3.0</span>
+      <span class="muted small">Offline-ready PWA • Board Mode v3.2</span>
       <span id="sw-status" class="muted small" aria-live="polite"></span>
     </div>
   </footer>
