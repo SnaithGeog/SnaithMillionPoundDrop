@@ -27,19 +27,19 @@
       <img class="brand-icon" src="./icons/icon-192.png" alt="" aria-hidden="true" />
       <div class="brand-text">
         <div class="brand-title">Snaith Millionaire</div>
-        <div class="brand-subtitle">Classroom Edition • v2.1</div>
+        <div class="brand-subtitle">Classroom Storyboard Edition • v3.0</div>
       </div>
     </div>
 
     <div class="actions">
-      <button id="btn-board" class="chip" type="button" aria-pressed="true" title="Toggle Board Mode">
+      <button id="btn-board" class="chip" type="button" aria-pressed="true" title="Toggle Board Mode (projector)">
         Board Mode
       </button>
-      <button id="btn-mute" class="chip" type="button" aria-pressed="false" title="Mute/unmute">
-        🔊
+      <button id="btn-mute" class="chip" type="button" aria-pressed="false" title="Mute/unmute audio">
+        🔊 Audio
       </button>
-      <button id="btn-reset" class="chip danger" type="button" title="Reset Game">
-        ↺
+      <button id="btn-reset" class="chip danger" type="button" title="Reset">
+        Reset
       </button>
     </div>
   </header>
@@ -55,18 +55,24 @@
           </div>
         </div>
 
-        <h1>Mr. Harrison's Financial Ruin</h1>
+        <h1>Who Wants to be a Snaith Millionaire?</h1>
         <p class="muted">
-          A cautionary tale of terrible advice and expensive mistakes.
+          Designed for whole-class display. Read the story, show the question, then reveal the correct answer.
         </p>
 
         <div class="row">
-          <button id="btn-enter" class="btn primary big-start-btn" type="button">ENTER STUDIO & PLAY</button>
+          <button id="btn-enter" class="btn primary" type="button">Enter Studio</button>
+          <button id="btn-start" class="btn" type="button">Start Game</button>
         </div>
 
-        <div class="cast-list" style="margin-top: 20px; font-size: 0.85em; color: rgba(255,255,255,0.6);">
-          Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.
-        </div>
+        <details class="how">
+          <summary>How it works</summary>
+          <ul>
+            <li>Use <strong>Reveal</strong> to highlight the correct answer (no student input needed).</li>
+            <li>Use <strong>Next</strong> to move to the next story chapter.</li>
+            <li>Board Mode is ON by default for projector-friendly text.</li>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -82,30 +88,31 @@
           <div class="panel mini">
             <div class="mini-title">Controls</div>
             <div class="stack">
-              <button id="btn-reveal" class="btn primary" type="button">Reveal Answer</button>
-              <button id="btn-next" class="btn" type="button" disabled>Next Question</button>
+              <button id="btn-reveal" class="btn primary" type="button">Reveal</button>
+              <button id="btn-next" class="btn" type="button" disabled>Next</button>
             </div>
             <div id="status" class="status" aria-live="polite"></div>
           </div>
 
           <div class="panel mini">
-            <div class="mini-title">Lifelines</div>
+            <div class="mini-title">Lifelines (display only)</div>
             <div class="lifes">
-              <button class="life" onclick="this.style.opacity='0.3'">50:50</button>
-              <button class="life" onclick="this.style.opacity='0.3'">📞</button>
-              <button class="life" onclick="this.style.opacity='0.3'">👥</button>
+              <span class="life">50:50</span>
+              <span class="life">📞</span>
+              <span class="life">👥</span>
             </div>
+            <div class="muted small">Optional: use these as prompts for discussion.</div>
           </div>
         </aside>
 
         <section class="stage" aria-label="Story and question">
           <div class="panel storypanel">
-            <div class="label">The Story</div>
+            <div class="label">Story</div>
             <div id="story-text" class="story"></div>
           </div>
 
           <div class="panel qpanel">
-            <div class="label">The Question</div>
+            <div class="label">Question</div>
             <div id="question-text" class="question"></div>
           </div>
 
@@ -122,7 +129,7 @@
     <section id="screen-end" class="screen">
       <div class="panel hero">
         <h1>Game Over</h1>
-        <p id="final-message" class="story" style="margin-bottom: 20px;"></p>
+        <p id="final-message" class="muted"></p>
         <div class="row">
           <button id="btn-play-again" class="btn primary" type="button">Play Again</button>
         </div>
@@ -132,7 +139,7 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <span class="muted small">Offline-ready PWA • Board Mode v2.1</span>
+      <span class="muted small">Offline-ready PWA • Board Mode for projector • v3.0</span>
       <span id="sw-status" class="muted small" aria-live="polite"></span>
     </div>
   </footer>
