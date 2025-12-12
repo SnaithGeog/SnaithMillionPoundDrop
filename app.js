@@ -1,7 +1,7 @@
 const questions = [
     {
         story: "I woke up in the staff room this morning absolutely famished. I called Mrs. Gravel for nutritional advice. She yelled, 'Harrison, stop eating dusty cereal! Run to the Costcutter in Snaith and get some proper bacon!' I obeyed instantly and ran all the way down Pontefract Road.",
-        question: "How much did I pay Mrs. Gravel for 6 slices of bacon?",
+        question: "How much did I pay Costcutter for 6 slices of bacon?",
         options: { a: "£25", b: "20p", c: "£1.46", d: "£2.50" },
         correct: "d"
     },
