@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Copperplate+Gothic&family=Roboto+Condensed:wght@700&display=swap');
+
+:root {
+    --bg-dark: #000022;
+    --bg-light: #000044;
+    --gold: #d4af37;
+    --gold-shine: #fffacd;
+    --orange: #ff9900;
+    --text-white: #ffffff;
+    --hex-border: #6688cc;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+    background: radial-gradient(circle at center, var(--bg-light) 0%, var(--bg-dark) 100%);
+    color: var(--text-white);
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+#app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay Screen */
+.overlay-mode {
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.bg-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 300px;
+    color: rgba(255, 255, 255, 0.03);
+    font-family: serif;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* === THE NEW STUDIO LOGO === */
+.millionaire-logo {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.millionaire-logo.small { transform: scale(0.6); margin: 0 auto; }
+
+.logo-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 80, 255, 0.4) 0%, transparent 70%);
+    animation: pulse 3s infinite;
+}
+
+.ring-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#333, #777, #333, #777, #333, #777, #333);
+    box-shadow: 0 0 25px rgba(0,0,0,0.9);
+    border: 1px solid #111;
+    z-index: 1;
+}
+
+.ring-inner {
+    position: absolute;
+    width: 88%;
+    height: 88%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #0044cc, #000033);
+    border: 6px solid var(--gold);
+    z-index: 2;
+    box-shadow: inset 0 0 40px #000;
+}
+
+/* Shiny effect on the gold ring */
+.ring-inner::after {
+    content: '';
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+.question-mark-bg {
+    position: absolute;
+    font-size: 180px;
+    color: rgba(100, 255, 100, 0.05);
+    font-family: serif;
+    z-index: 3;
+    font-weight: bold;
+}
+
+.logo-text {
+    position: relative;
+    z-index: 4;
+    font-family: 'Copperplate', serif;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-text {
+    font-size: 38px;
+    background: linear-gradient(to bottom, #ffffff 40%, #aaaaaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 0px #000;
+    letter-spacing: 2px;
+}
+
+.sub-text {
+    font-size: 14px;
+    background: linear-gradient(to bottom, var(--gold-shine), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 3px;
+    margin-top: 5px;
+    text-shadow: 1px 1px 0px #000;
+    border-top: 1px solid rgba(212, 175, 55, 0.5);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+    padding: 2px 0;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+h2 {
+    color: var(--gold);
+    font-family: 'Copperplate', serif;
+    margin: 5px 0;
+    letter-spacing: 2px;
+}
+
+/* === GAME UI === */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+.lifelines {
+    display: flex;
+    gap: 5px;
+}
+
+.lifeline-icon {
+    width: 40px;
+    height: 25px;
+    background: radial-gradient(ellipse at center, #003399 0%, #000000 100%);
+    border: 1px solid #6688cc;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--gold);
+    box-shadow: 0 0 5px rgba(255,255,255,0.2);
+}
+
+.money-ladder-display {
+    color: var(--orange);
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid var(--orange);
+    padding: 2px 10px;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.5);
+}
+
+.narrative-box {
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 15px;
+    font-style: italic;
+    font-size: 1.1em;
+    color: #ddd;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 2px #000;
+    line-height: 1.4;
+}
+
+/* === QUESTIONS & ANSWERS (Hexagons) === */
+.question-container { margin: 10px 0; }
+
+.question-hex {
+    background: linear-gradient(to bottom, #000000, #000044);
+    border: 2px solid var(--text-white);
+    border-radius: 15px;
+    padding: 20px 10px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2) inset;
+    position: relative;
+}
+.question-hex::before, .question-hex::after {
+    content: ''; position: absolute; top: 50%; width: 20px; height: 2px; background: var(--text-white);
+}
+.question-hex::before { left: -20px; }
+.question-hex::after { right: -20px; }
+
+#question-text { margin: 0; font-size: 1.25em; font-weight: normal; }
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+.answer-hex {
+    background: linear-gradient(to bottom, #000000, #000033);
+    border: 1px solid var(--hex-border);
+    border-radius: 30px;
+    color: var(--text-white);
+    padding: 12px 15px;
+    font-size: 16px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 5px #003399;
+}
+
+.answer-hex::before {
+    content: ''; position: absolute; top: 50%; left: -10px; width: 10px; height: 1px; background: var(--hex-border);
+}
+.answer-hex:nth-child(even)::before { left: auto; right: -10px; }
+
+.answer-letter {
+    color: var(--orange);
+    font-family: 'Copperplate', serif;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.answer-hex.correct {
+    background: radial-gradient(circle, #00aa00 0%, #004400 100%);
+    border-color: #00ff00;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 20px #00ff00;
+    animation: flash 0.5s alternate infinite;
+}
+.answer-hex.correct .answer-letter { color: #000; }
+
+@keyframes flash {
+    from { background: #00aa00; }
+    to { background: #00ff00; }
+}
+
+/* === BUTTONS === */
+.controls { margin-top: auto; margin-bottom: 20px; height: 50px; }
+
+.btn-millionaire {
+    background: linear-gradient(to bottom, #0044cc, #000066);
+    color: var(--text-white);
+    border: 2px solid var(--hex-border);
+    padding: 10px 40px;
+    font-size: 18px;
+    font-family: 'Copperplate', serif;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 100, 255, 0.5);
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+.btn-millionaire:active { transform: scale(0.95); background: #000044; }
+
+.btn-reveal { width: 100%; border-color: var(--orange); color: var(--orange); }
+.btn-next { width: 100%; border-color: var(--gold); color: var(--gold); }
+
+.hidden { display: none; }
+.blink { animation: blinker 1s linear infinite; color: var(--orange); }
+@keyframes blinker { 50% { opacity: 0; } }
+
+/* Logo small for overlay */
+.logo-container.small { display: none; } /* Hide old one if present */
