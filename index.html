@@ -6,60 +6,89 @@
     <title>Snaith Millionaire</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#000b29">
-    <link rel="apple-touch-icon" href="https://via.placeholder.com/192/d4af37/000000?text=S"> 
+    <meta name="theme-color" content="#000022">
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/192/000044/FFD700?text=$"> 
 </head>
 <body>
     <div id="app">
         <div id="start-screen" class="screen active">
-            <div class="logo-area">
-                <div class="logo-circle">
-                    <h1>SNAITH<br>SCHOOL</h1>
+            <div class="logo-container">
+                <div class="logo-ring">
+                    <div class="logo-inner">
+                        <h1>SNAITH<br>MILLIONAIRE</h1>
+                    </div>
                 </div>
             </div>
-            <h2>Mr. Harrison's Bad Advice</h2>
-            <p><strong>Host:</strong> Mr. Barton</p>
-            <p><strong>The Victim:</strong> Mr. Harrison</p>
+            <h2>SPECIAL EDITION</h2>
             <div class="cast-list">
-                <p>Featuring: Mrs. Yeates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+                <p><strong>HOST:</strong> MR. BARTON</p>
+                <p style="color: #aaa; font-size: 0.9em; margin-top: 5px;">A Game of High Stakes & Bad Advice</p>
             </div>
-            <button id="start-btn" class="btn-primary">Start The Game</button>
+            <button id="start-btn" class="btn-millionaire">LET'S PLAY</button>
         </div>
 
         <div id="game-screen" class="screen">
-            <div class="hud">
-                <span id="question-count">Question 1/14</span>
-                <span id="score-display">Harrison's Debt</span>
+            <div class="top-bar">
+                <div class="lifelines">
+                    <div class="lifeline-icon">50:50</div>
+                    <div class="lifeline-icon"><span style="font-size:12px">📞</span></div>
+                    <div class="lifeline-icon">👥</div>
+                </div>
+                <div class="money-ladder-display">
+                    <span id="question-count">1</span> <span class="ladder-slash">/</span> 14
+                </div>
             </div>
-            
-            <div class="story-box">
+
+            <div class="narrative-box">
                 <p id="story-text">Story loading...</p>
             </div>
 
-            <div class="question-box">
-                <h3 id="question-text">Question loading...</h3>
+            <div class="bg-logo">?</div>
+
+            <div class="question-container">
+                <div class="question-hex">
+                    <h3 id="question-text">Question loading...</h3>
+                </div>
             </div>
 
-            <div class="options-grid">
-                <div class="option-card" id="opt-a-card"><span class="letter">A:</span> <span id="opt-a"></span></div>
-                <div class="option-card" id="opt-b-card"><span class="letter">B:</span> <span id="opt-b"></span></div>
-                <div class="option-card" id="opt-c-card"><span class="letter">C:</span> <span id="opt-c"></span></div>
-                <div class="option-card" id="opt-d-card"><span class="letter">D:</span> <span id="opt-d"></span></div>
+            <div class="answers-grid">
+                <div class="answer-hex" id="opt-a-card">
+                    <span class="answer-letter">A:</span> <span class="answer-text" id="opt-a"></span>
+                </div>
+                <div class="answer-hex" id="opt-b-card">
+                    <span class="answer-letter">B:</span> <span class="answer-text" id="opt-b"></span>
+                </div>
+                <div class="answer-hex" id="opt-c-card">
+                    <span class="answer-letter">C:</span> <span class="answer-text" id="opt-c"></span>
+                </div>
+                <div class="answer-hex" id="opt-d-card">
+                    <span class="answer-letter">D:</span> <span class="answer-text" id="opt-d"></span>
+                </div>
             </div>
 
             <div class="controls">
-                <button id="reveal-btn" class="btn-action">REVEAL ANSWER</button>
-                <button id="next-btn" class="btn-action hidden">NEXT QUESTION</button>
+                <button id="reveal-btn" class="btn-millionaire btn-reveal">REVEAL</button>
+                <button id="next-btn" class="btn-millionaire btn-next hidden">NEXT</button>
+            </div>
+            
+            <div class="bank-total">
+                CURRENT DEBT: <span id="score-display">£0</span>
             </div>
         </div>
 
         <div id="end-screen" class="screen">
-            <div class="logo-circle" style="width: 100px; height: 100px;">
-                <h1 style="font-size: 16px;">SNAITH</h1>
+            <div class="logo-container small">
+                <div class="logo-ring">
+                    <div class="logo-inner">
+                        <h1>SNAITH</h1>
+                    </div>
+                </div>
             </div>
-            <h2>GAME OVER</h2>
-            <p id="final-message"></p>
-            <button onclick="location.reload()" class="btn-primary">Play Again</button>
+            <h2 class="blink">GAME OVER</h2>
+            <div class="final-score-box">
+                <p id="final-message"></p>
+            </div>
+            <button onclick="location.reload()" class="btn-millionaire">PLAY AGAIN</button>
         </div>
     </div>
 
