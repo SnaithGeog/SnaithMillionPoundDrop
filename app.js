@@ -1,24 +1,32 @@
+/* =========================
+   Snaith Millionaire — Classroom Storyboard Edition (v2.1)
+   - Story preserved exactly from v1 (questions array below)
+   - Updated dialogue to use "Mr. Harrison" instead of just "Harrison"
+   - No answer selection required: REVEAL highlights correct answer
+   - Board Mode for projector (ON by default)
+   ========================= */
+
 const questions = [
     {
-        story: "My disastrous day began when I woke up in the staff room, absolutely famished. I called Mrs. Gravel for advice. 'Harrison!' she yelled. 'Stop eating dusty cereal! Run to the Co-op in Snaith and get some proper bacon!' I obeyed instantly and ran all the way down Pontefract Road.",
+        story: "My disastrous day began when I woke up in the staff room, absolutely famished. I called Mrs. Gravel for advice. 'Mr. Harrison!' she yelled. 'Stop eating dusty cereal! Run to the Co-op in Snaith and get some proper bacon!' I obeyed instantly and ran all the way down Pontefract Road.",
         question: "How much did I pay the Co-op for 6 slices of bacon?",
         options: { a: "£25", b: "20p", c: "£1.46", d: "£2.50" },
         correct: "d"
     },
     {
-        story: "Walking back with my bacon, I found 6 duck eggs near the pond. Miss McCloud suddenly burst out of the science block. 'Harrison! I need those eggs for a volatile custard experiment!' she screamed, shoving cash into my hand and running off with them.",
+        story: "Walking back with my bacon, I found 6 duck eggs near the pond. Miss McCloud suddenly burst out of the science block. 'Mr. Harrison! I need those eggs for a volatile custard experiment!' she screamed, shoving cash into my hand and running off with them.",
         question: "How much did Miss McCloud pay me for the 6 duck eggs?",
         options: { a: "£5", b: "£2.50", c: "30p", d: "£1,500" },
         correct: "b"
     },
     {
-        story: "Flush with cash from the egg deal, I strutted into the IT office. Mr. Haggar looked up. 'You can't be a high-roller with that ancient phone,' he scoffed. 'You need the prototype iPhone 17 Pro Max (1TB). It's the only thing compatible with the new school Wi-Fi.'",
+        story: "Flush with cash from the egg deal, I strutted into the IT office. Mr. Haggar looked up. 'Mr. Harrison, you can't be a high-roller with that ancient phone,' he scoffed. 'You need the prototype iPhone 17 Pro Max (1TB). It's the only thing compatible with the new school Wi-Fi.'",
         question: "How much did Mr. Harrison pay Mr. Haggar for the iPhone 17 Pro Max?",
         options: { a: "£1,599", b: "£979", c: "£279", d: "£67.90" },
         correct: "a"
     },
     {
-        story: "Desperate to test my new phone, I called Mr. Ward. 'I'm bored,' I moaned. 'Perfect timing,' Mr. Ward replied. 'Buy my Saddleback pig. It's eating all the Year 7 homework and needs to go before Ofsted arrives.'",
+        story: "Desperate to test my new phone, I called Mr. Ward. 'I'm bored,' I moaned. 'Perfect timing, Mr. Harrison,' Mr. Ward replied. 'Buy my Saddleback pig. It's eating all the Year 7 homework and needs to go before Ofsted arrives.'",
         question: "How much did Mr. Harrison pay Mr. Ward for the pig?",
         options: { a: "£200", b: "£65", c: "£25", d: "£2000" },
         correct: "b"
@@ -30,25 +38,25 @@ const questions = [
         correct: "b"
     },
     {
-        story: "With a pig in the car, I needed space. I drove to a farm outside Snaith where Mr. Collins was weeping into a bucket. 'Harrison! The marking load is too high! Buy my 9.5 acres and Ms. Wilson's wild stallion so I can retire!' It seemed like the perfect home for my pig, so I agreed.",
+        story: "With a pig in the car, I needed space. I drove to a farm outside Snaith where Mr. Collins was weeping into a bucket. 'Mr. Harrison! The marking load is too high! Buy my 9.5 acres and Ms. Wilson's wild stallion so I can retire!' It seemed like the perfect home for my pig, so I agreed.",
         question: "How much did Mr. Harrison pay Mr. Collins for the farm?",
         options: { a: "£200,000", b: "£1.6 Billion", c: "£500,000", d: "£1.5 Million" },
         correct: "d"
     },
     {
-        story: "Now I owned a farm, but the stallion looked hangry. I called Mrs. Edge. 'Do horses eat bacon?' I asked. Mrs. Edge sighed deeply. 'No, Harrison, you fool. I'm bringing a bale of premium hay. Meet me at the gate.'",
+        story: "Now I owned a farm, but the stallion looked hangry. I called Mrs. Edge. 'Do horses eat bacon?' I asked. Mrs. Edge sighed deeply. 'No, Mr. Harrison, you fool. I'm bringing a bale of premium hay. Meet me at the gate.'",
         question: "How much did Mr. Harrison pay Mrs. Edge for the hay?",
         options: { a: "£1", b: "£5.20", c: "£10", d: "£15" },
         correct: "b"
     },
     {
-        story: "I was now broke from buying the farm. I asked Mr. Francis for a business plan. 'Simple,' he declared, putting on a riding helmet. 'We use the horse to start an Elite Riding School. We'll charge the parents a fortune.'",
+        story: "I was now broke from buying the farm. I asked Mr. Francis for a business plan. 'Simple, Mr. Harrison,' he declared, putting on a riding helmet. 'We use the horse to start an Elite Riding School. We'll charge the parents a fortune.'",
         question: "How much did Mr. Harrison charge for a 45min riding lesson?",
         options: { a: "£58", b: "£78", c: "£28", d: "£38" },
         correct: "c"
     },
     {
-        story: "During the very first lesson, I tripped over the pig and snapped my leg. 'Help!' I cried. Miss Maguinness looked up from her book. 'I have a foil blanket in my bag, Harrison, but nothing in this life is free.'",
+        story: "During the very first lesson, I tripped over the pig and snapped my leg. 'Help!' I cried. Miss Maguinness looked up from her book. 'I have a foil blanket in my bag, Mr. Harrison, but nothing in this life is free.'",
         question: "How much did Mr. Harrison pay Miss Maguinness for the foil blanket?",
         options: { a: "£2.12", b: "£1.11", c: "£0.10p", d: "£0.35p" },
         correct: "a"
@@ -78,7 +86,7 @@ const questions = [
         correct: "c"
     },
     {
-        story: "I stood on the deck of my new yacht, but I felt underdressed. Mr. Wilson appeared from below deck holding a sparkling object. 'You can't be a captain without the Golden Captain's Hat, Harrison,' Mr. Wilson insisted. 'It's tradition.'",
+        story: "I stood on the deck of my new yacht, but I felt underdressed. Mr. Wilson appeared from below deck holding a sparkling object. 'You can't be a captain without the Golden Captain's Hat, Mr. Harrison,' Mr. Wilson insisted. 'It's tradition.'",
         question: "How much did Mr. Harrison pay Mr. Wilson for the Golden Hat?",
         options: { a: "£50", b: "£500", c: "£5,000", d: "£15.99" },
         correct: "b"
@@ -91,86 +99,222 @@ const questions = [
     }
 ];
 
-let currentQuestionIndex = 0;
+const MONEY = [
+  "£100","£200","£300","£500","£1,000",
+  "£2,000","£4,000","£8,000","£16,000","£32,000",
+  "£64,000","£125,000","£250,000","£500,000","£1,000,000"
+];
 
-// DOM Elements
-const overlayScreen = document.getElementById('overlay-screen');
-const startScreen = document.getElementById('start-screen');
-const gameScreen = document.getElementById('game-screen');
-const endScreen = document.getElementById('end-screen');
-const initBtn = document.getElementById('init-btn');
-const startBtn = document.getElementById('start-btn');
-const revealBtn = document.getElementById('reveal-btn');
-const nextBtn = document.getElementById('next-btn');
-const storyText = document.getElementById('story-text');
-const questionText = document.getElementById('question-text');
-const optionCards = document.querySelectorAll('.answer-hex');
+let idx = 0;
+let revealed = false;
+let muted = false;
+let boardMode = true;
 
-// Audio Elements
-const musicIntro = document.getElementById('music-intro');
-const musicGame = document.getElementById('music-game');
+const el = {
+  start: document.getElementById("screen-start"),
+  game: document.getElementById("screen-game"),
+  end: document.getElementById("screen-end"),
 
-// Step 1: Initialize Audio
-initBtn.addEventListener('click', () => {
-    musicIntro.play()
-    .then(() => {
-        overlayScreen.classList.remove('active');
-        startScreen.classList.add('active');
-    })
-    .catch(error => {
-        // Fallback: Proceed even if audio fails
-        overlayScreen.classList.remove('active');
-        startScreen.classList.add('active');
-    });
-});
+  btnEnter: document.getElementById("btn-enter"),
+  btnStart: document.getElementById("btn-start"),
+  btnReveal: document.getElementById("btn-reveal"),
+  btnNext: document.getElementById("btn-next"),
+  btnReset: document.getElementById("btn-reset"),
+  btnAgain: document.getElementById("btn-play-again"),
 
-// Step 2: Start Game
-startBtn.addEventListener('click', () => {
-    startScreen.classList.remove('active');
-    gameScreen.classList.add('active');
-    
-    musicIntro.pause();
-    musicGame.play().catch(e => console.log("Game music failed:", e));
+  btnMute: document.getElementById("btn-mute"),
+  btnBoard: document.getElementById("btn-board"),
 
-    loadQuestion();
-});
+  story: document.getElementById("story-text"),
+  question: document.getElementById("question-text"),
+  optA: document.getElementById("opt-a"),
+  optB: document.getElementById("opt-b"),
+  optC: document.getElementById("opt-c"),
+  optD: document.getElementById("opt-d"),
+
+  cardA: document.getElementById("opt-a-card"),
+  cardB: document.getElementById("opt-b-card"),
+  cardC: document.getElementById("opt-c-card"),
+  cardD: document.getElementById("opt-d-card"),
+
+  qCount: document.getElementById("q-count"),
+  money: document.getElementById("money-label"),
+  status: document.getElementById("status"),
+  final: document.getElementById("final-message"),
+  sw: document.getElementById("sw-status"),
+
+  introMusic: document.getElementById("music-intro"),
+  gameMusic: document.getElementById("music-game"),
+};
+
+function show(which) {
+  [el.start, el.game, el.end].forEach(s => s.classList.remove("screen-active"));
+  which.classList.add("screen-active");
+}
+
+function applyBoardMode() {
+  document.body.classList.toggle("board-mode", boardMode);
+  el.btnBoard.setAttribute("aria-pressed", String(boardMode));
+}
+
+function setMute() {
+  const label = muted ? "🔇 Audio" : "🔊 Audio";
+  el.btnMute.textContent = label;
+  el.btnMute.setAttribute("aria-pressed", String(!muted));
+  el.introMusic.muted = muted;
+  el.gameMusic.muted = muted;
+}
+
+async function safePlay(audio) {
+  try { await audio.play(); } catch {}
+}
+
+function stopAllAudio() {
+  [el.introMusic, el.gameMusic].forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
+}
+
+function clearCorrect() {
+  [el.cardA, el.cardB, el.cardC, el.cardD].forEach(c => c.classList.remove("correct"));
+}
 
 function loadQuestion() {
-    revealBtn.classList.remove('hidden');
-    nextBtn.classList.add('hidden');
-    optionCards.forEach(card => card.classList.remove('correct'));
+  revealed = false;
+  clearCorrect();
+  el.btnNext.disabled = true;
 
-    const data = questions[currentQuestionIndex];
-    document.getElementById('question-count').textContent = currentQuestionIndex + 1;
-    
-    storyText.textContent = data.story;
-    questionText.textContent = data.question;
-    document.getElementById('opt-a').textContent = data.options.a;
-    document.getElementById('opt-b').textContent = data.options.b;
-    document.getElementById('opt-c').textContent = data.options.c;
-    document.getElementById('opt-d').textContent = data.options.d;
+  const q = questions[idx];
+  el.story.textContent = q.story;
+  el.question.textContent = q.question;
+
+  el.optA.textContent = q.options.a;
+  el.optB.textContent = q.options.b;
+  el.optC.textContent = q.options.c;
+  el.optD.textContent = q.options.d;
+
+  el.qCount.textContent = String(idx + 1);
+  el.money.textContent = MONEY[idx] || "";
+  el.status.textContent = "Ready to reveal the correct answer.";
 }
 
-revealBtn.addEventListener('click', () => {
-    const data = questions[currentQuestionIndex];
-    const correctLetter = data.correct; 
-    const correctCard = document.getElementById(`opt-${correctLetter}-card`);
-    correctCard.classList.add('correct');
-    revealBtn.classList.add('hidden');
-    nextBtn.classList.remove('hidden');
-});
+function revealCorrect() {
+  if (revealed) return;
+  const q = questions[idx];
+  const k = q.correct; // a/b/c/d
 
-nextBtn.addEventListener('click', () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        loadQuestion();
-    } else {
-        endGame();
-    }
-});
+  const map = { a: el.cardA, b: el.cardB, c: el.cardC, d: el.cardD };
+  clearCorrect();
+  if (map[k]) map[k].classList.add("correct");
+
+  revealed = true;
+  el.btnNext.disabled = false;
+  el.status.textContent = "Correct answer: " + k.toUpperCase();
+}
+
+function next() {
+  if (!revealed) return;
+  idx += 1;
+
+  if (idx < questions.length) {
+    loadQuestion();
+  } else {
+    endGame();
+  }
+}
 
 function endGame() {
-    gameScreen.classList.remove('active');
-    endScreen.classList.add('active');
-    document.getElementById('final-message').innerHTML = "I now owe <b>£149,102,248.82</b>.<br><br>Mrs. Yates is absolutely furious with me.<br><br>Well done Snaith School!";
+  stopAllAudio();
+  safePlay(el.introMusic);
+  show(el.end);
+
+  // Keep original end message
+  el.final.innerHTML = "I now owe <b>£149,102,248.82</b>.<br><br>Mrs. Yates is absolutely furious with me.<br><br>Well done Snaith School!";
 }
+
+function startGame() {
+  idx = 0;
+  stopAllAudio();
+  safePlay(el.gameMusic);
+  show(el.game);
+  loadQuestion();
+}
+
+function resetAll() {
+  stopAllAudio();
+  safePlay(el.introMusic);
+  idx = 0;
+  revealed = false;
+  show(el.start);
+}
+
+function registerSW() {
+  if (!("serviceWorker" in navigator)) return;
+  navigator.serviceWorker.register("./service-worker.js").then(() => {
+    el.sw.textContent = "Offline enabled";
+  }).catch(() => {
+    el.sw.textContent = "";
+  });
+}
+
+// Wire events
+el.btnEnter.addEventListener("click", async () => {
+  await safePlay(el.introMusic);
+});
+
+el.btnStart.addEventListener("click", startGame);
+el.btnReveal.addEventListener("click", revealCorrect);
+el.btnNext.addEventListener("click", next);
+el.btnReset.addEventListener("click", resetAll);
+el.btnAgain.addEventListener("click", startGame);
+
+el.btnMute.addEventListener("click", () => {
+  muted = !muted;
+  setMute();
+});
+
+el.btnBoard.addEventListener("click", () => {
+  boardMode = !boardMode;
+  applyBoardMode();
+});
+
+// Keyboard controls for board use
+window.addEventListener("keydown", (e) => {
+  const k = e.key.toLowerCase();
+
+  // Space/Enter: reveal if not revealed, else next
+  if (k === " " || k === "enter") {
+    e.preventDefault();
+    if (!el.game.classList.contains("screen-active")) return;
+    if (!revealed) revealCorrect();
+    else next();
+  }
+
+  // M toggles board mode
+  if (k === "m") {
+    boardMode = !boardMode;
+    applyBoardMode();
+  }
+
+  // R resets
+  if (k === "r") {
+    resetAll();
+  }
+});
+
+// Init
+(function init() {
+  boardMode = true;
+  applyBoardMode();
+  setMute();
+  show(el.start);
+
+  const firstTap = () => {
+    safePlay(el.introMusic);
+    window.removeEventListener("pointerdown", firstTap);
+  };
+  window.addEventListener("pointerdown", firstTap, { once: true });
+
+  registerSW();
+})();
