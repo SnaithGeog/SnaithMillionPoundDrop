@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v3.0.0-storyboard";
+const CACHE_VERSION = "v3.2.0-storyboard";
 const CACHE_STATIC = `static-${CACHE_VERSION}`;
 const CACHE_RUNTIME = `runtime-${CACHE_VERSION}`;
 
@@ -8,11 +8,10 @@ const PRECACHE = [
   "./style.css",
   "./app.js",
   "./manifest.json",
-  "./intro.mp3",
-  "./game.mp3",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-512-maskable.png"
+  // Note: Audio files removed from strict precache
 ];
 
 self.addEventListener("install", (event) => {
@@ -54,24 +53,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const url = new URL(req.url);
-
-  if (url.origin === self.location.origin && (url.pathname.endsWith(".mp3") || url.pathname.endsWith(".wav"))){
-    event.respondWith((async () => {
-      const cache = await caches.open(CACHE_STATIC);
-      const cached = await cache.match(req);
-      if (cached) return cached;
-      try{
-        const resp = await fetch(req);
-        cache.put(req, resp.clone());
-        return resp;
-      }catch{
-        return new Response("", {status:503});
-      }
-    })());
-    return;
-  }
-
+  // Generic fetch for other assets
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_RUNTIME);
     const cached = await cache.match(req);
