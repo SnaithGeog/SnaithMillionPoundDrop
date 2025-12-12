@@ -1,5 +1,5 @@
 /* =========================
-   Snaith Millionaire — Classroom Storyboard Edition (v2.1)
+   Snaith Millionaire — Classroom Storyboard Edition (v3.0)
    - Story preserved exactly from v1 (questions array below)
    - Updated dialogue to use "Mr. Harrison" instead of just "Harrison"
    - No answer selection required: REVEAL highlights correct answer
