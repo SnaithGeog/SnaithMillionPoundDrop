@@ -12,21 +12,21 @@ const questions = [
         correct: "b"
     },
     {
-        story: "Mr. Harrison felt flush with cash. He visited Mr. McKay in IT Support. 'You can't be seen with that old phone,' Mr. McKay laughed, handing him a shiny iPhone 12. 'It's essential for emailing parents.'",
-        question: "How much did Mr. McKay charge for the NEW 64gb iPhone 12?",
-        options: { a: "£679", b: "£979", c: "£279", d: "£67.90" },
+        story: "Mr. Harrison felt rich. He visited Mr. Haggar in IT Support. 'That old phone is embarrassing,' Mr. Haggar scoffed, pulling out a prototype iPhone 17 Pro Max (1TB). 'You need this for the school wifi.'",
+        question: "How much did Mr. Haggar charge for the iPhone 17 Pro Max?",
+        options: { a: "£1,599", b: "£979", c: "£279", d: "£67.90" },
         correct: "a"
     },
     {
-        story: "Mr. Harrison used the phone to call Mr. Ward. 'I'm bored in my free period,' he moaned. 'Buy my Saddleback pig,' Mr. Ward replied. 'I need it gone before the Ofsted inspection.'",
+        story: "Mr. Harrison called Mr. Ward. 'I'm bored in my free period,' he moaned. 'Buy my Saddleback pig,' Mr. Ward replied. 'I need it gone before the Ofsted inspection.'",
         question: "How much did Mr. Ward charge for the pig?",
         options: { a: "£200", b: "£65", c: "£25", d: "£2000" },
         correct: "b"
     },
     {
-        story: "Mr. Harrison jumped into his 2017 Ford Focus parked in the staff car park. He stopped at the garage in Snaith. Mrs. Kilner filled the tank while tutting loudly at his driving.",
+        story: "Mr. Harrison jumped into his 2020 Audi A3 parked in the staff car park. He stopped at the garage in Snaith. Mrs. Kilner filled the tank while tutting loudly at his parking.",
         question: "How much did the full tank of fuel cost?",
-        options: { a: "£5", b: "£65", c: "£578", d: "£25" },
+        options: { a: "£5", b: "£75", c: "£578", d: "£25" },
         correct: "b"
     },
     {
@@ -79,8 +79,8 @@ const questions = [
     },
     {
         story: "Mr. Harrison finally passed out. He woke up back in his classroom, realizing he had spent a fortune based on terrible advice from the Snaith School staff.",
-        question: "Calculate the total spending (Bacon, Phone, Pig, Fuel, Farm, Hay, Blanket, Helicopter, Yacht).",
-        options: { a: "£149,100,836.45", b: "148,100,222", c: "179,676,221.86", d: "220,228,112.98" },
+        question: "Calculate the total spending (Bacon, iPhone 17, Pig, Audi Fuel, Farm, Hay, Blanket, Helicopter, Yacht).",
+        options: { a: "£149,101,748.82", b: "148,100,222", c: "179,676,221.86", d: "220,228,112.98" },
         correct: "a"
     }
 ];
