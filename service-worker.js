@@ -1,11 +1,10 @@
-const CACHE_NAME = 'snaith-millionaire-v4.0';
+const CACHE_NAME = 'snaith-millionaire-reset-v100';
 const assets = [
   './',
   './index.html',
   './style.css',
   './app.js',
-  './manifest.json',
-  './logo.png' 
+  './manifest.json'
 ];
 
 self.addEventListener('install', event => {
