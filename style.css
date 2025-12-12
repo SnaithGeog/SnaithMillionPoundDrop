@@ -154,15 +154,16 @@ h2 {
     background: rgba(0, 0, 0, 0.6);
     border-top: 1px solid var(--gold);
     border-bottom: 1px solid var(--gold);
-    padding: 10px;
+    padding: 15px;
     font-style: italic;
     font-size: 1.1em;
     color: #ddd;
-    min-height: 60px;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-shadow: 1px 1px 2px #000;
+    line-height: 1.4;
 }
 
 /* === QUESTIONS & ANSWERS (The Hexagon Look) === */
@@ -182,7 +183,6 @@ h2 {
     box-shadow: 0 0 10px rgba(255,255,255,0.2) inset;
     position: relative;
 }
-/* Adding the lines to the sides */
 .question-hex::before, .question-hex::after {
     content: '';
     position: absolute;
@@ -196,7 +196,7 @@ h2 {
 
 #question-text {
     margin: 0;
-    font-size: 1.3em;
+    font-size: 1.25em;
     font-weight: normal;
 }
 
@@ -210,7 +210,7 @@ h2 {
 .answer-hex {
     background: linear-gradient(to bottom, #000000, #000033);
     border: 1px solid var(--hex-border);
-    border-radius: 30px; /* Lozenge shape */
+    border-radius: 30px;
     color: var(--text-white);
     padding: 12px 15px;
     font-size: 16px;
@@ -221,7 +221,6 @@ h2 {
     box-shadow: 0 0 5px #003399;
 }
 
-/* The Connecting Lines */
 .answer-hex::before {
     content: '';
     position: absolute;
@@ -265,7 +264,7 @@ h2 {
 /* === BUTTONS === */
 .controls {
     margin-top: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     height: 50px;
 }
 
@@ -293,18 +292,6 @@ h2 {
 .btn-next { width: 100%; border-color: var(--gold); color: var(--gold); }
 
 .hidden { display: none; }
-
-.bank-total {
-    background: #000;
-    color: var(--orange);
-    border: 1px solid var(--orange);
-    padding: 5px;
-    border-radius: 5px;
-    font-family: 'Copperplate', serif;
-    letter-spacing: 1px;
-    font-size: 1.1em;
-    margin-bottom: 5px;
-}
 
 .blink { animation: blinker 1s linear infinite; color: var(--orange); }
 @keyframes blinker { 50% { opacity: 0; } }
