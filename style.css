@@ -4,7 +4,7 @@
     --gold: #d4af37;
     --text-white: #ffffff;
     --correct: #2ea016;
-    --wrong: #b81414;
+    --wrong: #b81414; /* Used for non-selected options if needed, or we keep them neutral */
 }
 
 body {
@@ -65,7 +65,7 @@ h1 {
     line-height: 1.2;
     color: var(--gold);
     text-shadow: 2px 2px 0px #000;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Copperplate', serif;
 }
 
 .cast-list {
@@ -119,33 +119,25 @@ h1 {
     gap: 12px;
 }
 
-.option-btn {
+.option-card {
     background: linear-gradient(to bottom, #001a4d, #000b29);
     border: 1px solid #555;
     border-radius: 50px;
     color: var(--text-white);
     padding: 12px 15px;
     font-size: 15px;
-    cursor: pointer;
     text-align: left;
-    transition: transform 0.1s, border-color 0.2s;
     display: flex;
     align-items: center;
+    /* Not clickable anymore */
 }
 
-.option-btn:active {
-    transform: scale(0.98);
-}
-
-.option-btn.correct {
+.option-card.correct {
     background: var(--correct);
     border-color: var(--gold);
     box-shadow: 0 0 15px var(--correct);
-}
-
-.option-btn.wrong {
-    background: var(--wrong);
-    opacity: 0.6;
+    transform: scale(1.05);
+    transition: all 0.3s;
 }
 
 .btn-primary {
@@ -159,4 +151,38 @@ h1 {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
     margin-top: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    height: 60px; /* Fixed height to prevent layout jump */
+}
+
+.btn-action {
+    background: #0044cc;
+    color: #fff;
+    border: 2px solid var(--gold);
+    padding: 10px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-action:active {
+    background: #003399;
+}
+
+.hidden {
+    display: none;
+}
+
+.letter {
+    color: var(--gold);
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 1.1em;
 }
