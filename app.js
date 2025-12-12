@@ -6,8 +6,8 @@ const questions = [
         correct: "d"
     },
     {
-        story: "Walking back to school, Mr. Harrison found 6 duck eggs near the pond. Mr. McCloud popped out of the science block. 'I need those for a highly dangerous experiment!' he shouted, paying cash immediately.",
-        question: "How much did Mr. McCloud pay for the 6 duck eggs?",
+        story: "Walking back to school, Mr. Harrison found 6 duck eggs near the pond. Miss McCloud popped out of the science block. 'I need those for a highly dangerous experiment!' she shouted, paying cash immediately.",
+        question: "How much did Miss McCloud pay for the 6 duck eggs?",
         options: { a: "£5", b: "£2.50", c: "30p", d: "£1,500" },
         correct: "b"
     },
@@ -86,16 +86,19 @@ const questions = [
 ];
 
 let currentQuestionIndex = 0;
-let isAnswered = false;
 
+// DOM Elements
 const startScreen = document.getElementById('start-screen');
 const gameScreen = document.getElementById('game-screen');
 const endScreen = document.getElementById('end-screen');
 const startBtn = document.getElementById('start-btn');
-const optionsBtns = document.querySelectorAll('.option-btn');
+const revealBtn = document.getElementById('reveal-btn');
+const nextBtn = document.getElementById('next-btn');
 const storyText = document.getElementById('story-text');
 const questionText = document.getElementById('question-text');
+const optionCards = document.querySelectorAll('.option-card');
 
+// Start Game
 startBtn.addEventListener('click', () => {
     startScreen.classList.remove('active');
     gameScreen.classList.add('active');
@@ -103,50 +106,57 @@ startBtn.addEventListener('click', () => {
 });
 
 function loadQuestion() {
-    isAnswered = false;
+    // Reset State
+    revealBtn.classList.remove('hidden');
+    nextBtn.classList.add('hidden');
+    optionCards.forEach(card => card.classList.remove('correct'));
+
     const data = questions[currentQuestionIndex];
+    
+    // Update Text
     document.getElementById('question-count').textContent = `Question ${currentQuestionIndex + 1}/${questions.length}`;
+    
+    // Fade in story
     storyText.style.opacity = 0;
     setTimeout(() => {
         storyText.textContent = data.story;
         storyText.style.opacity = 1;
     }, 200);
+
     questionText.textContent = data.question;
+    
+    // Update Options
     document.getElementById('opt-a').textContent = data.options.a;
     document.getElementById('opt-b').textContent = data.options.b;
     document.getElementById('opt-c').textContent = data.options.c;
     document.getElementById('opt-d').textContent = data.options.d;
-    optionsBtns.forEach(btn => {
-        btn.classList.remove('correct', 'wrong');
-        btn.disabled = false;
-    });
 }
 
-optionsBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        if (isAnswered) return;
-        isAnswered = true;
-        const selected = btn.dataset.opt;
-        const correct = questions[currentQuestionIndex].correct;
-        if (selected === correct) {
-            btn.classList.add('correct');
-            setTimeout(() => nextQuestion(), 1500);
-        } else {
-            btn.classList.add('wrong');
-            document.querySelector(`[data-opt="${correct}"]`).classList.add('correct');
-            setTimeout(() => nextQuestion(), 3000); 
-        }
-    });
+// Reveal Logic
+revealBtn.addEventListener('click', () => {
+    const data = questions[currentQuestionIndex];
+    const correctLetter = data.correct; // e.g. "a"
+    
+    // Find the card ID like "opt-a-card"
+    const correctCard = document.getElementById(`opt-${correctLetter}-card`);
+    
+    // Add green class
+    correctCard.classList.add('correct');
+
+    // Toggle Buttons
+    revealBtn.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
 });
 
-function nextQuestion() {
+// Next Button Logic
+nextBtn.addEventListener('click', () => {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
         loadQuestion();
     } else {
         endGame();
     }
-}
+});
 
 function endGame() {
     gameScreen.classList.remove('active');
