@@ -1,9 +1,7 @@
 /* =========================
-   Snaith Millionaire — Classroom Storyboard Edition (v3.0)
-   - Story preserved exactly from v1 (questions array below)
-   - Updated dialogue to use "Mr. Harrison" instead of just "Harrison"
-   - No answer selection required: REVEAL highlights correct answer
-   - Board Mode for projector (ON by default)
+   Snaith Millionaire — Classroom Storyboard Edition (v3.2)
+   - Updated dialogue to use "Mr. Harrison"
+   - CSS Logo integrated
    ========================= */
 
 const questions = [
@@ -224,13 +222,25 @@ function next() {
   }
 }
 
+function launchConfetti() {
+    const container = document.body;
+    const colors = ['#d4af37', '#ffffff', '#ff9900', '#0044cc'];
+    for (let i = 0; i < 100; i++) {
+        const div = document.createElement('div');
+        div.classList.add('confetti');
+        div.style.left = Math.random() * 100 + 'vw';
+        div.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        div.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        container.appendChild(div);
+    }
+}
+
 function endGame() {
   stopAllAudio();
   safePlay(el.introMusic);
   show(el.end);
-
-  // Keep original end message
   el.final.innerHTML = "I now owe <b>£149,102,248.82</b>.<br><br>Mrs. Yates is absolutely furious with me.<br><br>Well done Snaith School!";
+  launchConfetti();
 }
 
 function startGame() {
@@ -279,28 +289,17 @@ el.btnBoard.addEventListener("click", () => {
   applyBoardMode();
 });
 
-// Keyboard controls for board use
+// Keyboard controls
 window.addEventListener("keydown", (e) => {
   const k = e.key.toLowerCase();
-
-  // Space/Enter: reveal if not revealed, else next
   if (k === " " || k === "enter") {
     e.preventDefault();
     if (!el.game.classList.contains("screen-active")) return;
     if (!revealed) revealCorrect();
     else next();
   }
-
-  // M toggles board mode
-  if (k === "m") {
-    boardMode = !boardMode;
-    applyBoardMode();
-  }
-
-  // R resets
-  if (k === "r") {
-    resetAll();
-  }
+  if (k === "m") { boardMode = !boardMode; applyBoardMode(); }
+  if (k === "r") { resetAll(); }
 });
 
 // Init
