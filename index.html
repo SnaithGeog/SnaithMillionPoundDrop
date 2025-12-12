@@ -10,20 +10,43 @@
     <link rel="apple-touch-icon" href="https://via.placeholder.com/192/000044/FFD700?text=$"> 
 </head>
 <body>
+    <audio id="music-intro" loop>
+        <source src="intro.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-game" loop>
+        <source src="game.mp3" type="audio/mpeg">
+    </audio>
+
     <div id="app">
-        <div id="start-screen" class="screen active">
-            <div class="logo-container">
+        <div id="overlay-screen" class="screen active overlay-mode">
+            <div class="logo-container small">
                 <div class="logo-ring">
                     <div class="logo-inner">
-                        <h1>SNAITH<br>MILLIONAIRE</h1>
+                        <h1>SNAITH</h1>
                     </div>
                 </div>
             </div>
+            <p>Tap to Enter Studio</p>
+            <button id="init-btn" class="btn-millionaire">ENTER</button>
+        </div>
+
+        <div id="start-screen" class="screen">
+            <div class="millionaire-logo">
+                <div class="ring-outer"></div>
+                <div class="ring-inner"></div>
+                <div class="logo-text">
+                    <span>SNAITH</span>
+                    <span class="sub">MILLIONAIRE</span>
+                </div>
+                <div class="question-mark-bg">?</div>
+            </div>
+
             <h2>SPECIAL EDITION</h2>
             <div class="cast-list">
                 <p><strong>HOST:</strong> MR. BARTON</p>
                 <p style="color: #aaa; font-size: 0.9em; margin-top: 5px;">A Game of High Stakes & Bad Advice</p>
             </div>
+            
             <button id="start-btn" class="btn-millionaire">LET'S PLAY</button>
         </div>
 
@@ -73,11 +96,11 @@
         </div>
 
         <div id="end-screen" class="screen">
-            <div class="logo-container small">
-                <div class="logo-ring">
-                    <div class="logo-inner">
-                        <h1>SNAITH</h1>
-                    </div>
+            <div class="millionaire-logo small">
+                <div class="ring-outer"></div>
+                <div class="ring-inner"></div>
+                <div class="logo-text">
+                    <span>SNAITH</span>
                 </div>
             </div>
             <h2 class="blink">GAME OVER</h2>
