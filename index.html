@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snaith Millionaire</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000b29">
+    <link rel="apple-touch-icon" href="icon-192.png"> 
+</head>
+<body>
+    <div id="app">
+        <div id="start-screen" class="screen active">
+            <div class="logo-area">
+                <div class="logo-circle">
+                    <h1>SNAITH<br>SCHOOL</h1>
+                </div>
+            </div>
+            <h2>Mr. Harrison's Bad Advice</h2>
+            <p><strong>Host:</strong> Mr. Barton</p>
+            <p><strong>The Victim:</strong> Mr. Harrison</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 10px;">Featuring: Mrs. Yeates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Mr. McCloud, Mr. McKay, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+            <button id="start-btn" class="btn-primary">Start The Game</button>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="hud">
+                <span id="question-count">Question 1/14</span>
+                <span id="score-display">Harrison's Debt</span>
+            </div>
+            
+            <div class="story-box">
+                <p id="story-text">Story text goes here...</p>
+            </div>
+
+            <div class="question-box">
+                <h3 id="question-text">Question goes here?</h3>
+            </div>
+
+            <div class="options-grid">
+                <button class="option-btn" data-opt="a"><span class="letter">A:</span> <span id="opt-a"></span></button>
+                <button class="option-btn" data-opt="b"><span class="letter">B:</span> <span id="opt-b"></span></button>
+                <button class="option-btn" data-opt="c"><span class="letter">C:</span> <span id="opt-c"></span></button>
+                <button class="option-btn" data-opt="d"><span class="letter">D:</span> <span id="opt-d"></span></button>
+            </div>
+        </div>
+
+        <div id="end-screen" class="screen">
+            <div class="logo-circle" style="width: 100px; height: 100px;">
+                <h1 style="font-size: 16px;">SNAITH</h1>
+            </div>
+            <h2>GAME OVER</h2>
+            <p id="final-message"></p>
+            <button onclick="location.reload()" class="btn-primary">Play Again</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>
