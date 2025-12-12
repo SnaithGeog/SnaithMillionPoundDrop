@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000b29">
-    <link rel="apple-touch-icon" href="icon-192.png"> 
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/192/d4af37/000000?text=S"> 
 </head>
 <body>
     <div id="app">
@@ -20,7 +20,9 @@
             <h2>Mr. Harrison's Bad Advice</h2>
             <p><strong>Host:</strong> Mr. Barton</p>
             <p><strong>The Victim:</strong> Mr. Harrison</p>
-            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 10px;">Featuring: Mrs. Yeates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Mr. McCloud, Mr. McKay, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+            <div class="cast-list">
+                <p>Featuring: Mrs. Yeates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. McKay, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+            </div>
             <button id="start-btn" class="btn-primary">Start The Game</button>
         </div>
 
@@ -31,18 +33,23 @@
             </div>
             
             <div class="story-box">
-                <p id="story-text">Story text goes here...</p>
+                <p id="story-text">Story loading...</p>
             </div>
 
             <div class="question-box">
-                <h3 id="question-text">Question goes here?</h3>
+                <h3 id="question-text">Question loading...</h3>
             </div>
 
             <div class="options-grid">
-                <button class="option-btn" data-opt="a"><span class="letter">A:</span> <span id="opt-a"></span></button>
-                <button class="option-btn" data-opt="b"><span class="letter">B:</span> <span id="opt-b"></span></button>
-                <button class="option-btn" data-opt="c"><span class="letter">C:</span> <span id="opt-c"></span></button>
-                <button class="option-btn" data-opt="d"><span class="letter">D:</span> <span id="opt-d"></span></button>
+                <div class="option-card" id="opt-a-card"><span class="letter">A:</span> <span id="opt-a"></span></div>
+                <div class="option-card" id="opt-b-card"><span class="letter">B:</span> <span id="opt-b"></span></div>
+                <div class="option-card" id="opt-c-card"><span class="letter">C:</span> <span id="opt-c"></span></div>
+                <div class="option-card" id="opt-d-card"><span class="letter">D:</span> <span id="opt-d"></span></div>
+            </div>
+
+            <div class="controls">
+                <button id="reveal-btn" class="btn-action">REVEAL ANSWER</button>
+                <button id="next-btn" class="btn-action hidden">NEXT QUESTION</button>
             </div>
         </div>
 
