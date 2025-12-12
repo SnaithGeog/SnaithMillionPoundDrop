@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snaith Millionaire</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000022">
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/192/000044/FFD700?text=$"> 
+</head>
+<body>
+    <audio id="music-intro" loop>
+        <source src="intro.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-game" loop>
+        <source src="game.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app">
+        <div id="overlay-screen" class="screen active overlay-mode">
+            <div class="css-logo-wrapper small">
+                <div class="logo-outer-ring"></div>
+                <div class="logo-inner-dish">
+                    <div class="logo-q-mark">?</div>
+                    <div class="logo-text-stack">
+                        <span class="logo-top">SNAITH</span>
+                    </div>
+                </div>
+            </div>
+            <p>Tap to Enter Studio</p>
+            <button id="init-btn" class="btn-millionaire">ENTER</button>
+        </div>
+
+        <div id="start-screen" class="screen">
+            
+            <div class="css-logo-wrapper">
+                <div class="logo-glow-effect"></div>
+                <div class="logo-outer-ring"></div>
+                <div class="logo-inner-dish">
+                    <div class="logo-q-mark-bg">?</div>
+                    <div class="logo-q-mark-bg left">?</div>
+                    <div class="logo-q-mark-bg right">?</div>
+                    <div class="logo-text-stack">
+                        <span class="logo-top">SNAITH</span>
+                        <span class="logo-bottom">MILLIONAIRE</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2>SPECIAL EDITION</h2>
+            <div class="cast-list">
+                <p><strong>HOST & VICTIM:</strong> MR. HARRISON</p>
+                <p style="color: #aaa; font-size: 0.9em; margin-top: 5px;">"The True Story of My Financial Ruin"</p>
+                <p style="font-size: 0.8em; color: #666; margin-top: 10px;">Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+            </div>
+            
+            <button id="start-btn" class="btn-millionaire">LET'S PLAY</button>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="top-bar">
+                <div class="lifelines">
+                    <div class="lifeline-icon">50:50</div>
+                    <div class="lifeline-icon"><span style="font-size:12px">📞</span></div>
+                    <div class="lifeline-icon">👥</div>
+                </div>
+                <div class="money-ladder-display">
+                    <span id="question-count">1</span> <span class="ladder-slash">/</span> 15
+                </div>
+            </div>
+
+            <div class="narrative-box">
+                <p id="story-text">Story loading...</p>
+            </div>
+
+            <div class="bg-logo">?</div>
+
+            <div class="question-container">
+                <div class="question-hex">
+                    <h3 id="question-text">Question loading...</h3>
+                </div>
+            </div>
+
+            <div class="answers-grid">
+                <div class="answer-hex" id="opt-a-card">
+                    <span class="answer-letter">A:</span> <span class="answer-text" id="opt-a"></span>
+                </div>
+                <div class="answer-hex" id="opt-b-card">
+                    <span class="answer-letter">B:</span> <span class="answer-text" id="opt-b"></span>
+                </div>
+                <div class="answer-hex" id="opt-c-card">
+                    <span class="answer-letter">C:</span> <span class="answer-text" id="opt-c"></span>
+                </div>
+                <div class="answer-hex" id="opt-d-card">
+                    <span class="answer-letter">D:</span> <span class="answer-text" id="opt-d"></span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="reveal-btn" class="btn-millionaire btn-reveal">REVEAL</button>
+                <button id="next-btn" class="btn-millionaire btn-next hidden">NEXT</button>
+            </div>
+        </div>
+
+        <div id="end-screen" class="screen">
+            <div class="css-logo-wrapper small">
+                <div class="logo-outer-ring"></div>
+                <div class="logo-inner-dish">
+                    <div class="logo-q-mark">?</div>
+                    <div class="logo-text-stack">
+                        <span class="logo-top">SNAITH</span>
+                    </div>
+                </div>
+            </div>
+            <h2 class="blink">GAME OVER</h2>
+            <div class="final-score-box">
+                <p id="final-message"></p>
+            </div>
+            <button onclick="location.reload()" class="btn-millionaire">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>

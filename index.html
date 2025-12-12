@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Snaith Millionaire</title>
-
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#000022" />
@@ -19,140 +18,122 @@
     <source src="game.mp3" type="audio/mpeg" />
   </audio>
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-logo-css">?</div>
-      <div class="brand-text">
-        <div class="brand-title">Snaith Millionaire</div>
-        <div class="brand-subtitle">Classroom Edition • v3.2</div>
+  <main id="app">
+    
+    <div id="screen-start" class="screen active">
+      <div class="logo-container">
+        <img src="logo.png" alt="Snaith Millionaire Logo" class="main-logo-img" onerror="this.style.display='none'">
+        <h1 class="fallback-title">SNAITH MILLIONAIRE</h1>
+      </div>
+      
+      <div class="intro-box">
+        <h2>SPECIAL EDITION</h2>
+        <div class="cast-list">
+            <p><strong>STARRING:</strong> MR. HARRISON</p>
+            <p style="font-size: 0.9em; color: #aaa; margin-bottom: 15px;">"The True Story of Financial Ruin"</p>
+            <p style="font-size: 0.8em; color: #666; line-height: 1.4;">Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.</p>
+        </div>
+        <button id="btn-enter" class="btn-millionaire big">ENTER STUDIO</button>
       </div>
     </div>
 
-    <div class="actions">
-      <button id="btn-board" class="chip" type="button" aria-pressed="true" title="Toggle Board Mode">
-        Board Mode
-      </button>
-      <button id="btn-mute" class="chip" type="button" aria-pressed="false" title="Mute/unmute">
-        🔊
-      </button>
-      <button id="btn-reset" class="chip danger" type="button" title="Reset Game">
-        ↺
-      </button>
+    <div id="screen-game" class="screen">
+      
+      <div class="money-ladder" id="money-ladder">
+        <div class="rung" data-level="15">15 &nbsp; £149M</div>
+        <div class="rung" data-level="14">14 &nbsp; £145M</div>
+        <div class="rung" data-level="13">13 &nbsp; £12M</div>
+        <div class="rung" data-level="12">12 &nbsp; £2.6M</div>
+        <div class="rung" data-level="11">11 &nbsp; 10 MINS</div>
+        <div class="rung safe" data-level="10">10 &nbsp; £1.2M</div>
+        <div class="rung" data-level="9">09 &nbsp; £2.12</div>
+        <div class="rung" data-level="8">08 &nbsp; £28</div>
+        <div class="rung" data-level="7">07 &nbsp; £5.20</div>
+        <div class="rung" data-level="6">06 &nbsp; £1.5M</div>
+        <div class="rung safe" data-level="5">05 &nbsp; £75</div>
+        <div class="rung" data-level="4">04 &nbsp; £65</div>
+        <div class="rung" data-level="3">03 &nbsp; £1,599</div>
+        <div class="rung" data-level="2">02 &nbsp; £2.50</div>
+        <div class="rung active" data-level="1">01 &nbsp; £2.50</div>
+      </div>
+
+      <div class="game-content">
+        <header class="top-bar">
+          <div class="lifelines">
+            <button class="lifeline-btn" onclick="this.classList.toggle('used')">50:50</button>
+            <button class="lifeline-btn" onclick="this.classList.toggle('used')">📞</button>
+            <button class="lifeline-btn" onclick="this.classList.toggle('used')">👥</button>
+          </div>
+          <div class="score-box">
+            Q <span id="q-count">1</span> / 15
+          </div>
+        </header>
+
+        <div class="narrative-box">
+          <p id="story-text">Story loads here...</p>
+        </div>
+
+        <div class="question-container">
+          <div class="hex-row">
+            <div class="hex-line"></div>
+            <div class="hex-content" id="question-text">Question loads here...</div>
+            <div class="hex-line"></div>
+          </div>
+        </div>
+
+        <div class="answers-grid">
+          <div class="answer-hex" id="opt-a-card">
+            <span class="letter">A:</span> <span class="text" id="opt-a"></span>
+          </div>
+          <div class="answer-hex" id="opt-b-card">
+            <span class="letter">B:</span> <span class="text" id="opt-b"></span>
+          </div>
+          <div class="answer-hex" id="opt-c-card">
+            <span class="letter">C:</span> <span class="text" id="opt-c"></span>
+          </div>
+          <div class="answer-hex" id="opt-d-card">
+            <span class="letter">D:</span> <span class="text" id="opt-d"></span>
+          </div>
+        </div>
+
+        <div class="controls-area">
+          <button id="btn-reveal" class="btn-millionaire action">REVEAL ANSWER</button>
+          <button id="btn-next" class="btn-millionaire action hidden">NEXT QUESTION</button>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <main class="app" id="app">
-    <section id="screen-start" class="screen screen-active">
-      <div class="panel hero">
-        
-        <div class="css-logo-wrapper">
-            <div class="logo-glow-effect"></div>
-            <div class="logo-outer-ring"></div>
-            <div class="logo-inner-dish">
-                <div class="logo-q-mark-bg">?</div>
-                <div class="logo-q-mark-bg left">?</div>
-                <div class="logo-q-mark-bg right">?</div>
-                <div class="logo-text-stack">
-                    <span class="logo-top">SNAITH</span>
-                    <span class="logo-bottom">MILLIONAIRE</span>
-                </div>
-            </div>
-        </div>
-
-        <h1>Mr. Harrison's Financial Ruin</h1>
-        <p class="muted">
-          A cautionary tale of terrible advice and expensive mistakes.
-        </p>
-
-        <div class="row">
-          <button id="btn-enter" class="btn primary big-start-btn" type="button">ENTER STUDIO & PLAY</button>
-        </div>
-
-        <div class="cast-list" style="margin-top: 20px; font-size: 0.85em; color: rgba(255,255,255,0.6);">
-          Featuring: Mrs. Yates, Mr. Baines, Mr. Wilson, Mrs. Gravel, Miss McCloud, Mr. Haggar, Mr. Ward, Mrs. Kilner, Mr. Collins, Mrs. Edge, Mr. Francis & Miss Maguinness.
-        </div>
+    <div id="screen-end" class="screen">
+      <div class="confetti-container" id="confetti-container"></div>
+      
+      <div class="logo-container small">
+        <img src="logo.png" alt="Logo" class="main-logo-img small" onerror="this.style.display='none'">
       </div>
-    </section>
-
-    <section id="screen-game" class="screen">
-      <div class="layout">
-        <aside class="side" aria-label="Progress">
-          <div class="panel mini">
-            <div class="mini-title">Progress</div>
-            <div class="mini-big"><span id="q-count">1</span> / 15</div>
-            <div class="mini-sub" id="money-label">£100</div>
-          </div>
-
-          <div class="panel mini">
-            <div class="mini-title">Controls</div>
-            <div class="stack">
-              <button id="btn-reveal" class="btn primary" type="button">Reveal Answer</button>
-              <button id="btn-next" class="btn" type="button" disabled>Next Question</button>
-            </div>
-            <div id="status" class="status" aria-live="polite"></div>
-          </div>
-
-          <div class="panel mini">
-            <div class="mini-title">Lifelines</div>
-            <div class="lifes">
-              <button class="life" onclick="this.style.opacity='0.3'">50:50</button>
-              <button class="life" onclick="this.style.opacity='0.3'">📞</button>
-              <button class="life" onclick="this.style.opacity='0.3'">👥</button>
-            </div>
-          </div>
-        </aside>
-
-        <section class="stage" aria-label="Story and question">
-          <div class="panel storypanel">
-            <div class="label">The Story</div>
-            <div id="story-text" class="story"></div>
-          </div>
-
-          <div class="panel qpanel">
-            <div class="label">The Question</div>
-            <div id="question-text" class="question"></div>
-          </div>
-
-          <div class="answers" aria-label="Answers">
-            <div class="answer" id="opt-a-card"><div class="key">A</div><div class="txt" id="opt-a"></div></div>
-            <div class="answer" id="opt-b-card"><div class="key">B</div><div class="txt" id="opt-b"></div></div>
-            <div class="answer" id="opt-c-card"><div class="key">C</div><div class="txt" id="opt-c"></div></div>
-            <div class="answer" id="opt-d-card"><div class="key">D</div><div class="txt" id="opt-d"></div></div>
-          </div>
-        </section>
+      <h2 class="blink" style="color:#d4af37; font-size:3em; margin-bottom:10px;">GAME OVER</h2>
+      <div class="final-box">
+        <p id="final-message"></p>
       </div>
-    </section>
+      <button id="btn-play-again" class="btn-millionaire">PLAY AGAIN</button>
+    </div>
 
-    <section id="screen-end" class="screen">
-      <div class="panel hero">
-        <div class="confetti-container" id="confetti-container"></div>
-        
-        <div class="css-logo-wrapper small">
-            <div class="logo-outer-ring"></div>
-            <div class="logo-inner-dish">
-                <div class="logo-q-mark">?</div>
-                <div class="logo-text-stack">
-                    <span class="logo-top">SNAITH</span>
-                </div>
-            </div>
-        </div>
-
-        <h1 style="color:#d4af37;">Game Over</h1>
-        <p id="final-message" class="story" style="margin-bottom: 20px;"></p>
-        <div class="row">
-          <button id="btn-play-again" class="btn primary" type="button">Play Again</button>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <span class="muted small">Offline-ready PWA • Board Mode v3.2</span>
-      <span id="sw-status" class="muted small" aria-live="polite"></span>
-    </div>
-  </footer>
-
-  <script src="app.js" defer></script>
+  <script src="app.js"></script>
+  
+  <script>
+    // Unregister old workers to force update
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+    // Re-register new one
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
 </body>
 </html>
